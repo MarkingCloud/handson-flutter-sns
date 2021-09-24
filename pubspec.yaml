@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.3
 
   # 追加パッケージ
   flutter_riverpod: ^0.13.1+1
@@ -25,11 +25,12 @@ dependencies:
   firebase_core: ^1.6.0
   cloud_firestore: ^2.5.3
   firebase_auth: ^3.1.1
+  google_sign_in: ^5.1.1 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^1.0.4
 
   # 追加パッケージ
   build_runner: ^2.1.2
