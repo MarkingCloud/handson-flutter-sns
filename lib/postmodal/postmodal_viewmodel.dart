@@ -30,7 +30,6 @@ class PostStateNotifier extends StateNotifier<Post> {
       state = state.copyWith(
         user: 'anonymous',
         uid: 'anonymous',
-        photoURL: 'image/flutter.png',
         timeStamp: DateTime.now(),
       );
     }
