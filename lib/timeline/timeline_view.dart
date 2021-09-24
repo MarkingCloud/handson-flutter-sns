@@ -28,21 +28,13 @@ class TimeLinePage extends HookWidget {
     return user.when(
       data: (user) {
         if (user == null) {
-          return _anonymousIcon();
+          return const Icon(Icons.account_circle);
         } else {
           return _userPhoto(user.photoURL!);
         }
       },
       loading: () => const CircularProgressIndicator(),
       error: (err, stackTrace) => Text(err.toString()),
-    );
-  }
-
-  Widget _anonymousIcon() {
-    return const CircleAvatar(
-      backgroundImage: AssetImage('image/flutter.png'),
-      backgroundColor: Colors.transparent,
-      radius: 16,
     );
   }
 
@@ -120,7 +112,7 @@ class TimeLinePage extends HookWidget {
 
   Widget _postIcon(Post post) {
     if (post.uid == 'anonymous') {
-      return _anonymousIcon();
+      return const Icon(Icons.account_circle);
     } else {
       return _userPhoto(post.photoURL);
     }
