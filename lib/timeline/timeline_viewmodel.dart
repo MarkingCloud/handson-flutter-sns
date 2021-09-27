@@ -1,15 +1,10 @@
 // 依存パッケージ
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 参照ファイル
 import '/abstract/post.dart';
-import '/model/posts_model.dart';
 
 final authProvider = StateProvider((ref) => false);
-
-// final postsProvider =
-//     Provider.autoDispose((ref) => ref.watch(postsModelProvider));
 
 final postsProvider = StateProvider(
   (ref) => [
@@ -36,6 +31,12 @@ final postsProvider = StateProvider(
     ),
   ],
 );
+
+void addPost(StateController posts, Post post) {
+  final newPosts = [...posts.state];
+  newPosts.add(post);
+  posts.state = newPosts;
+}
 
 Future signIn(StateController user) async {
   user.state = true;
