@@ -107,11 +107,9 @@ class TimeLinePage extends HookWidget {
 
   // floatingActionButtonの要素
   Widget _postButton(BuildContext context) {
-    final posts = useProvider(postsProvider);
     return FloatingActionButton(
-      onPressed: () async {
-        final post = await Navigator.of(context).pushNamed('/post') as Post;
-        addPost(posts, post);
+      onPressed: () {
+        Navigator.of(context).pushNamed('/post');
       },
       child: const Icon(Icons.add),
     );

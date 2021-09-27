@@ -13,10 +13,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Post _$PostFromJson(Map<String, dynamic> json) {
-  return _Post.fromJson(json);
-}
-
 /// @nodoc
 class _$PostTearOff {
   const _$PostTearOff();
@@ -26,7 +22,7 @@ class _$PostTearOff {
       String body = '',
       String uid = '',
       String photoURL = '',
-      @TimestampConverter() DateTime? timeStamp = null}) {
+      DateTime? timeStamp = null}) {
     return _Post(
       user: user,
       body: body,
@@ -34,10 +30,6 @@ class _$PostTearOff {
       photoURL: photoURL,
       timeStamp: timeStamp,
     );
-  }
-
-  Post fromJson(Map<String, Object> json) {
-    return Post.fromJson(json);
   }
 }
 
@@ -50,10 +42,8 @@ mixin _$Post {
   String get body => throw _privateConstructorUsedError;
   String get uid => throw _privateConstructorUsedError;
   String get photoURL => throw _privateConstructorUsedError;
-  @TimestampConverter()
   DateTime? get timeStamp => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
 }
@@ -67,7 +57,7 @@ abstract class $PostCopyWith<$Res> {
       String body,
       String uid,
       String photoURL,
-      @TimestampConverter() DateTime? timeStamp});
+      DateTime? timeStamp});
 }
 
 /// @nodoc
@@ -121,7 +111,7 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       String body,
       String uid,
       String photoURL,
-      @TimestampConverter() DateTime? timeStamp});
+      DateTime? timeStamp});
 }
 
 /// @nodoc
@@ -167,16 +157,14 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Post implements _Post {
   const _$_Post(
       {this.user = '',
       this.body = '',
       this.uid = '',
       this.photoURL = '',
-      @TimestampConverter() this.timeStamp = null});
-
-  factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
+      this.timeStamp = null});
 
   @JsonKey(defaultValue: '')
   @override
@@ -192,7 +180,6 @@ class _$_Post implements _Post {
   final String photoURL;
   @JsonKey(defaultValue: null)
   @override
-  @TimestampConverter()
   final DateTime? timeStamp;
 
   @override
@@ -231,11 +218,6 @@ class _$_Post implements _Post {
   @override
   _$PostCopyWith<_Post> get copyWith =>
       __$PostCopyWithImpl<_Post>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_PostToJson(this);
-  }
 }
 
 abstract class _Post implements Post {
@@ -244,9 +226,7 @@ abstract class _Post implements Post {
       String body,
       String uid,
       String photoURL,
-      @TimestampConverter() DateTime? timeStamp}) = _$_Post;
-
-  factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
+      DateTime? timeStamp}) = _$_Post;
 
   @override
   String get user => throw _privateConstructorUsedError;
@@ -257,7 +237,6 @@ abstract class _Post implements Post {
   @override
   String get photoURL => throw _privateConstructorUsedError;
   @override
-  @TimestampConverter()
   DateTime? get timeStamp => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

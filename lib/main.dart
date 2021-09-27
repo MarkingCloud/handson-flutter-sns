@@ -1,15 +1,13 @@
 // 依存パッケージ
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 // 参照ファイル
 import '/timeline/timeline_view.dart';
 import '/postmodal/postmodal_view.dart';
 
-Future main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(
     const ProviderScope(
       child: MyApp(),

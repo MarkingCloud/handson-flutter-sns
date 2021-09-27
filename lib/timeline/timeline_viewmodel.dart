@@ -32,16 +32,10 @@ final postsProvider = StateProvider(
   ],
 );
 
-void addPost(StateController posts, Post post) {
-  final newPosts = [...posts.state];
-  newPosts.add(post);
-  posts.state = newPosts;
-}
-
-Future signIn(StateController user) async {
+void signIn(StateController user) {
   user.state = true;
 }
 
-Future signOut(StateController user) async {
+void signOut(StateController user) {
   user.state = false;
 }

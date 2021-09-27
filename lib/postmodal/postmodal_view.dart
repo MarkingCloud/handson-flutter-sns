@@ -52,8 +52,8 @@ class PostModalPage extends HookWidget {
       width: 200,
       child: ElevatedButton(
         onPressed: () {
-          final post = postStateNotifier.addPost();
-          Navigator.of(context).pop(post);
+          postStateNotifier.addPost();
+          Navigator.of(context).pop();
         },
         style: ButtonStyle(
           padding: MaterialStateProperty.all(
