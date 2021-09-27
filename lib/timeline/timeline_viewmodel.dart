@@ -2,19 +2,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 参照ファイル
-import '/model/auth_model.dart';
 import '/model/posts_model.dart';
 
-final authProvider =
-    Provider.autoDispose((ref) => ref.watch(authModelProvider));
+final authProvider = StateProvider((ref) => false);
 
 final postsProvider =
     Provider.autoDispose((ref) => ref.watch(postsModelProvider));
 
-Future signIn() async {
-  signInAuth();
+Future signIn(StateController user) async {
+  user.state = true;
 }
 
-Future signOut() async {
-  signOutAuth();
+Future signOut(StateController user) async {
+  user.state = false;
 }

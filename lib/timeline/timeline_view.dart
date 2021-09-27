@@ -7,6 +7,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '/abstract/post.dart';
 import '/timeline/timeline_viewmodel.dart';
 
+const url =
+    'http://4.bp.blogspot.com/--BQnc6hxRm4/VEETLVoJiUI/AAAAAAAAoa0/GZZhRIxBwso/s800/sensu_salaryman.png';
+
 class TimeLinePage extends HookWidget {
   const TimeLinePage({Key? key}) : super(key: key);
 
@@ -25,17 +28,11 @@ class TimeLinePage extends HookWidget {
   // appBarの要素
   Widget _userIcon() {
     final user = useProvider(authProvider);
-    return user.when(
-      data: (user) {
-        if (user == null) {
-          return const Icon(Icons.account_circle);
-        } else {
-          return _userPhoto(user.photoURL!);
-        }
-      },
-      loading: () => const CircularProgressIndicator(),
-      error: (err, stackTrace) => Text(err.toString()),
-    );
+    if (user.state == false) {
+      return const Icon(Icons.account_circle);
+    } else {
+      return _userPhoto(url);
+    }
   }
 
   Widget _userPhoto(String photoURL) {
@@ -48,32 +45,26 @@ class TimeLinePage extends HookWidget {
 
   Widget _authButton() {
     final user = useProvider(authProvider);
-    return user.when(
-      data: (user) {
-        if (user == null) {
-          return _signInButton();
-        } else {
-          return _signOutButton();
-        }
-      },
-      loading: () => const CircularProgressIndicator(),
-      error: (err, stackTrace) => Text(err.toString()),
-    );
+    if (user.state == false) {
+      return _signInButton(user);
+    } else {
+      return _signOutButton(user);
+    }
   }
 
-  Widget _signInButton() {
+  Widget _signInButton(StateController user) {
     return IconButton(
       onPressed: () {
-        signIn();
+        signIn(user);
       },
       icon: const Icon(Icons.login),
     );
   }
 
-  Widget _signOutButton() {
+  Widget _signOutButton(StateController user) {
     return IconButton(
       onPressed: () {
-        signOut();
+        signOut(user);
       },
       icon: const Icon(Icons.logout),
     );
