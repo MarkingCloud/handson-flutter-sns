@@ -7,7 +7,6 @@ import '/timeline/timeline_view.dart';
 import '/postmodal/postmodal_view.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     const ProviderScope(
       child: MyApp(),
