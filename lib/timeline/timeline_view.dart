@@ -72,12 +72,8 @@ class TimeLinePage extends HookWidget {
 
   // bodyの要素
   Widget _timeLine(BuildContext context) {
-    final posts = useProvider(postsProvider);
-    return posts.when(
-      data: (posts) => _timeLineCards(context, posts.toList()),
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (err, stackTrace) => Text(err.toString()),
-    );
+    final posts = useProvider(postsProvider).state;
+    return _timeLineCards(context, posts.toList());
   }
 
   Widget _timeLineCards(BuildContext context, List<Post> posts) {
