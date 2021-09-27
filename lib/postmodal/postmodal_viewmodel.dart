@@ -18,29 +18,32 @@ final postStateNotifierProvider =
 class PostStateNotifier extends StateNotifier<Post> {
   PostStateNotifier(this.user, this.posts) : super(const Post());
   final StateController<bool> user;
-  final StateController<List<Post>> posts;
+  final StateController<List> posts;
 
+  // Todo
   void changeBody(String value) {
-    state = state.copyWith(body: value);
+    // state = state.copyWith(body: value);
+    // print(state.body);
   }
 
+  //Todo
   void addPost() {
-    if (user.state == true) {
-      state = state.copyWith(
-        user: "おじ",
-        uid: "oji",
-        photoURL: url,
-        timeStamp: DateTime.now(),
-      );
-    } else {
-      state = state.copyWith(
-        user: 'anonymous',
-        uid: 'anonymous',
-        timeStamp: DateTime.now(),
-      );
-    }
-    final newPosts = [...posts.state];
-    newPosts.add(state);
-    posts.state = newPosts;
+    // if (user.state == true) {
+    //   state = state.copyWith(
+    //     user: "おじ",
+    //     uid: "oji",
+    //     photoURL: url,
+    //     timeStamp: DateTime.now(),
+    //   );
+    // } else {
+    //   state = state.copyWith(
+    //     user: 'anonymous',
+    //     uid: 'anonymous',
+    //     timeStamp: DateTime.now(),
+    //   );
+    // }
+    // final newPosts = [...posts.state];
+    // newPosts.add(state);
+    // posts.state = newPosts;
   }
 }

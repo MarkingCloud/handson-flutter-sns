@@ -14,14 +14,16 @@ class TimeLinePage extends HookWidget {
   const TimeLinePage({Key? key}) : super(key: key);
 
   @override
+
+  // Todo
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Time Line'),
-        actions: [_userIcon(), _authButton()],
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Time Line'),
+      //   actions: [_userIcon(), _authButton()],
+      // ),
       body: _timeLine(context),
-      floatingActionButton: _postButton(context),
+      // floatingActionButton: _postButton(context),
     );
   }
 
@@ -70,13 +72,23 @@ class TimeLinePage extends HookWidget {
     );
   }
 
+  // floatingActionButtonの要素
+  Widget _postButton(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.of(context).pushNamed('/post');
+      },
+      child: const Icon(Icons.add),
+    );
+  }
+
   // bodyの要素
   Widget _timeLine(BuildContext context) {
     final posts = useProvider(postsProvider).state;
-    return _timeLineCards(context, posts.toList());
+    return _timeLineCards(context, posts);
   }
 
-  Widget _timeLineCards(BuildContext context, List<Post> posts) {
+  Widget _timeLineCards(BuildContext context, List posts) {
     return ListView.builder(
       itemCount: posts.length,
       itemBuilder: (context, index) {
@@ -103,15 +115,5 @@ class TimeLinePage extends HookWidget {
     } else {
       return _userPhoto(post.photoURL);
     }
-  }
-
-  // floatingActionButtonの要素
-  Widget _postButton(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.of(context).pushNamed('/post');
-      },
-      child: const Icon(Icons.add),
-    );
   }
 }
