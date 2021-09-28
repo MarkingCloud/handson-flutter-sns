@@ -84,8 +84,8 @@ class TimeLinePage extends HookWidget {
 
   // bodyの要素
   Widget _timeLine(BuildContext context) {
-    final posts = useProvider(postsProvider); // ここでposts呼び出し
-    return _timeLineCards(context, posts.state); // 変数.state で値にアクセスできる
+    final posts = useProvider(postsProvider);
+    return _timeLineCards(context, posts.state);
   }
 
   Widget _timeLineCards(BuildContext context, List posts) {
