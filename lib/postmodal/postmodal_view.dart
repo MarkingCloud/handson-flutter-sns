@@ -21,20 +21,22 @@ class PostModalPage extends HookWidget {
 
   // bodyの要素
   Widget _postModal(BuildContext context) {
-    final postStateNotifier = useProvider(postStateNotifierProvider);
+    final postStateNotifier = useProvider(postStateNotifierProvider.state);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        _bodyForm(context, postStateNotifier),
-        _postButton(context, postStateNotifier),
+        _bodyForm(context),
+        _textCount(postStateNotifier.body.length),
+        _postButton(context),
       ],
     );
   }
 
-  Widget _bodyForm(BuildContext context, PostStateNotifier postStateNotifier) {
+  Widget _bodyForm(BuildContext context) {
     final screenMaxHeight = MediaQuery.of(context).size.height;
+    final postStateNotifier = useProvider(postStateNotifierProvider);
     return Container(
-      height: screenMaxHeight * 0.6,
+      height: screenMaxHeight * 0.5,
       margin: EdgeInsets.all(screenMaxHeight * 0.1),
       child: TextFormField(
         maxLines: 100,
@@ -46,8 +48,15 @@ class PostModalPage extends HookWidget {
     );
   }
 
-  Widget _postButton(
-      BuildContext context, PostStateNotifier postStateNotifier) {
+  Widget _textCount(int count) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 24),
+      child: Text('文字数 : ${count.toString()}'),
+    );
+  }
+
+  Widget _postButton(BuildContext context) {
+    final postStateNotifier = useProvider(postStateNotifierProvider);
     return SizedBox(
       width: 200,
       child: ElevatedButton(
