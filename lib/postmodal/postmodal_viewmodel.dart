@@ -23,7 +23,6 @@ class PostStateNotifier extends StateNotifier<Post> {
   // Todo
   void changeBody(String value) {
     // state = state.copyWith(body: value);
-    // print(state.body);
   }
 
   //Todo
