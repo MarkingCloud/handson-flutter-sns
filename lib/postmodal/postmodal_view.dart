@@ -21,12 +21,11 @@ class PostModalPage extends HookWidget {
 
   // bodyの要素
   Widget _postModal(BuildContext context) {
-    final postStateNotifier = useProvider(postStateNotifierProvider.state);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         _bodyForm(context),
-        _textCount(postStateNotifier.body.length),
+        _textCount(),
         _postButton(context),
       ],
     );
@@ -48,7 +47,9 @@ class PostModalPage extends HookWidget {
     );
   }
 
-  Widget _textCount(int count) {
+  Widget _textCount() {
+    final postStateNotifier = useProvider(postStateNotifierProvider.state);
+    final count = postStateNotifier.body.length;
     return Container(
       margin: const EdgeInsets.only(bottom: 24),
       child: Text('文字数 : ${count.toString()}'),
