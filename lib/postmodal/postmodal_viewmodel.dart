@@ -41,8 +41,8 @@ class PostStateNotifier extends StateNotifier<Post> {
     //     timeStamp: DateTime.now(),
     //   );
     // }
-    // final newPosts = [...posts.state];
-    // newPosts.add(state);
+    // final List<Post>? newPosts = [...posts.state];
+    // newPosts!.add(state);
     // posts.state = newPosts;
   }
 }
