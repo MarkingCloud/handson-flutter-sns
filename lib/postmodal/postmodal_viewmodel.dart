@@ -17,7 +17,7 @@ class PostStateNotifier extends StateNotifier<Post> {
     state = state.copyWith(body: value);
   }
 
-  Future addPost() async {
+  void addPost() {
     final user = getCurrentUser();
     if (user != null) {
       state = state.copyWith(
@@ -33,6 +33,6 @@ class PostStateNotifier extends StateNotifier<Post> {
         timeStamp: DateTime.now(),
       );
     }
-    await addPostDB(state);
+    addPostDB(state);
   }
 }

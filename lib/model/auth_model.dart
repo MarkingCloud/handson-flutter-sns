@@ -3,23 +3,25 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authModelProvider = StreamProvider.autoDispose((ref) {
-  return FirebaseAuth.instance.authStateChanges();
+  //return FirebaseAuth.instance.authStateChanges();
+  return Stream<User?>.value(null);
 });
 
-Future signInAuth() async {
-  GoogleAuthProvider googleProvider = GoogleAuthProvider();
-  return await FirebaseAuth.instance.signInWithPopup(googleProvider);
+void signInAuth() {
+  // GoogleAuthProvider googleProvider = GoogleAuthProvider();
+  // FirebaseAuth.instance.signInWithPopup(googleProvider);
 }
 
-Future signOutAuth() async {
-  return await FirebaseAuth.instance.signOut();
+void signOutAuth() async {
+  // FirebaseAuth.instance.signOut();
 }
 
 User? getCurrentUser() {
-  final user = FirebaseAuth.instance.currentUser;
-  if (user != null) {
-    return user;
-  } else {
-    return null;
-  }
+  // final user = FirebaseAuth.instance.currentUser;
+  // if (user != null) {
+  //   return user;
+  // } else {
+  //   return null;
+  // }
+  return null;
 }
