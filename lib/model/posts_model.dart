@@ -10,11 +10,11 @@ final postsModelProvider = StreamProvider.autoDispose((ref) {
   //     .collection('posts')
   //     .orderBy('timeStamp')
   //     .snapshots();
-  // final posts = stream.map(
-  //   (snapshot) => snapshot.docs.map(
-  //     (doc) => Post.fromJson(doc.data()),
-  //   ),
-  // );
+  //     .map(
+  //       (snapshot) => snapshot.docs.map(
+  //         (doc) => Post.fromJson(doc.data()),
+  //       ),
+  //     );
   // return posts;
   return Stream<Iterable<Post>>.value([]);
 });
