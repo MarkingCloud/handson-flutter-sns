@@ -12,7 +12,7 @@ void signInAuth() {
   // FirebaseAuth.instance.signInWithPopup(googleProvider);
 }
 
-void signOutAuth() async {
+void signOutAuth() {
   // FirebaseAuth.instance.signOut();
 }
 
