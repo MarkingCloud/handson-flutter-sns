@@ -6,15 +6,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '/abstract/post.dart';
 
 final postsModelProvider = StreamProvider.autoDispose((ref) {
-  final stream = FirebaseFirestore.instance
+  final posts = FirebaseFirestore.instance
       .collection('posts')
       .orderBy('timeStamp')
       .snapshots();
-  final posts = stream.map(
-    (snapshot) => snapshot.docs.map(
-      (doc) => Post.fromJson(doc.data()),
-    ),
-  );
+      .map(
+        (snapshot) => snapshot.docs.map(
+          (doc) => Post.fromJson(doc.data()),
+        ),
+      );
   return posts;
 });
 
