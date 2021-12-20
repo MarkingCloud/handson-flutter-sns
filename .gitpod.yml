@@ -4,7 +4,8 @@ tasks:
 - before: >
     source ~/.bashrc
   init: >
-    flutter pub get
+    flutter pub get &&
+    npm i -g firebase-tools
 vscode:
   extensions:
     - Dart-Code.dart-code
